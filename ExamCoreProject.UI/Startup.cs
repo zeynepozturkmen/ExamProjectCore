@@ -40,6 +40,9 @@ namespace ExamCoreProject.UI
             services.AddScoped<ICorrectAnswerService, CorrectAnswerManager>();
             services.AddScoped<ICorrectAnswerDal, EFCoreCorrectAnswerDal>();
 
+            services.AddScoped<IUserService, UserManager>();
+            services.AddScoped<IUserDal, EFCoreUserDal>();
+
 
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2);
 
@@ -68,7 +71,7 @@ namespace ExamCoreProject.UI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Exam}/{action=CreateExam}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

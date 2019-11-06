@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -21,7 +21,9 @@
     <PackageReference Include="bootbox" Version="4.2.0" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.16" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNet.Providers.Core" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
