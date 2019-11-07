@@ -210,13 +210,6 @@ namespace ExamCoreProject.UI.Controllers
         //Sınava girme get action'ı
         public ActionResult EnterExam(int id)
         {
-            //if (Session["admin"] == null)
-            //{
-            //    return RedirectToAction("Login", "Account");
-            //}
-            //else
-            //{
-
                 if (id != 0)
                 {
                     EnterExamClass modal = new EnterExamClass();
@@ -245,8 +238,6 @@ namespace ExamCoreProject.UI.Controllers
                     var exList = _examService.GetAll();
                     return RedirectToAction("ExamList", exList);
                 }
-
-            //}
 
         }
 
