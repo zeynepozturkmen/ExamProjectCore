@@ -15,6 +15,7 @@ namespace ExamProjectCore.DataAccess.Concrete
         {
             using (var context = new TContext())
             {
+                context.Database.Migrate();
                 context.Set<T>().Add(entity);
                 context.SaveChanges();
             }
@@ -24,6 +25,7 @@ namespace ExamProjectCore.DataAccess.Concrete
         {
             using (var context = new TContext())
             {
+                context.Database.Migrate();
                 context.Set<T>().Remove(entity);
                 context.SaveChanges();
             }
@@ -33,6 +35,7 @@ namespace ExamProjectCore.DataAccess.Concrete
         {
             using (var context = new TContext())
             {
+                context.Database.Migrate();
                 return filter == null
                          ? context.Set<T>().ToList()
                          : context.Set<T>().Where(filter).ToList();
@@ -41,9 +44,10 @@ namespace ExamProjectCore.DataAccess.Concrete
 
         public T GetById(int id)
         {
-
+          
             using (var context = new TContext())
             {
+                context.Database.Migrate();
                 return context.Set<T>().Find(id);
             }
         }
@@ -52,6 +56,7 @@ namespace ExamProjectCore.DataAccess.Concrete
         {
             using (var context = new TContext())
             {
+                context.Database.Migrate();
                 return context.Set<T>().Where(filter).SingleOrDefault();
             }
         }
@@ -60,6 +65,7 @@ namespace ExamProjectCore.DataAccess.Concrete
         {
             using (var context = new TContext())
             {
+                context.Database.Migrate();
                 context.Entry(entity).State = EntityState.Modified;
                 context.SaveChanges();
             }

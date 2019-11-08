@@ -2,7 +2,7 @@
 
 namespace ExamProjectCore.DataAccess.Migrations
 {
-    public partial class CreateDatabase : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,7 @@ namespace ExamProjectCore.DataAccess.Migrations
                 columns: table => new
                 {
                     CorrectId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Correct = table.Column<string>(nullable: true),
                     OptionId = table.Column<int>(nullable: false)
                 },
@@ -21,17 +21,17 @@ namespace ExamProjectCore.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Exam",
+                name: "Exams",
                 columns: table => new
                 {
                     ExamId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Exam", x => x.ExamId);
+                    table.PrimaryKey("PK_Exams", x => x.ExamId);
                 });
 
             migrationBuilder.CreateTable(
@@ -39,7 +39,7 @@ namespace ExamProjectCore.DataAccess.Migrations
                 columns: table => new
                 {
                     OptionId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     OptionName = table.Column<string>(nullable: true),
                     OptionContent = table.Column<string>(nullable: true),
                     CorrectOption = table.Column<bool>(nullable: false),
@@ -55,7 +55,7 @@ namespace ExamProjectCore.DataAccess.Migrations
                 columns: table => new
                 {
                     QuestionId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     QuestionNumber = table.Column<int>(nullable: false),
                     QuestionContent = table.Column<string>(nullable: true),
                     ExamId = table.Column<int>(nullable: false)
@@ -70,7 +70,7 @@ namespace ExamProjectCore.DataAccess.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("Sqlite:Autoincrement", true),
                     UserName = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true)
                 },
@@ -86,7 +86,7 @@ namespace ExamProjectCore.DataAccess.Migrations
                 name: "CorrectAnswers");
 
             migrationBuilder.DropTable(
-                name: "Exam");
+                name: "Exams");
 
             migrationBuilder.DropTable(
                 name: "Options");
