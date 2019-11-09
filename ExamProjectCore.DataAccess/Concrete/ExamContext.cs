@@ -8,18 +8,6 @@ namespace ExamProjectCore.DataAccess.Concrete
 {
     public class ExamContext : DbContext
     {
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(@"Server=DESKTOP-JLJI4GI\SQLEXPRESS;Database=ExamCoreDb;User id=sa;Password=Password1");
-        //}
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<ProductCategory>()
-        //            .HasKey(c => new { c.CategoryId, c.ProductId });
-        //}
-
         public DbSet<Exam> Exams { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Option> Options { get; set; }
@@ -29,13 +17,7 @@ namespace ExamProjectCore.DataAccess.Concrete
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-            //.UseSqlite(@"Data Source=ExamSqliteDB.db;");
             .UseSqlite(@"Data Source=C:\sqlite3\ExamSqliteDB.db;");
-            //Database.EnsureDeleted();
-            //Database.EnsureCreated();
-            //Database.Migrate();
-
-            //.UseSqlite("Filename=./ExamSqliteDB.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
